@@ -1,3 +1,5 @@
+autoload :Readline, 'readline'
+
 module Memo
   module Util
     module_function
