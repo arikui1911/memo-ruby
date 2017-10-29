@@ -25,7 +25,41 @@ Commands:
 
 ## プラグイン
 
-...
+memo のプラグインシステムはそんなに複雑ではない…はずです。
+
+プラグインの名前は、a-zA-Z で始まり a-zA-Z0-9 で続く文字列、
+つまりプログラミング言語の識別子みたいな文字列を、
+ダッシュあるいはハイフンで連結したもの、になります。
+
+そして、 memo/plugins/xxx というパスで require される
+Ruby ライブラリが、 xxx という名前のプラグインを実装する
+こととします。
+
+さらに、そのプラグインを gem でインストールする場合、
+memo-plugin-xxxx という名前である必要があります。
+
+プラグインの実装は Memo::Plugin クラスを継承したクラスに
+対して行い、そのクラス名は Memo::Plugins::Xxxx である
+必要があります。 Xxxx は、プラグイン名を、ダッシュあるいは
+ハイフンを区切りとして分割し、キャピタライズし、連結し直した
+名前になります。
+
+ * 例: some-plug という memo プラグイン
+ * gem: memo-plugin-some-plug
+ * /lib/memo/plugins/some-plug.rb 内に
+        require 'memo/plugin'
+
+        module Memo
+          module Plugins
+            class SomePlug < Plugin
+              # ...
+            end
+          end
+        end
+
+実例としては memo の標準コマンドはみんなプラグインで実装されて
+いますので、 lib/memo/plugins/ 以下を見てみてください。
+
 
 ## ライセンス
 
