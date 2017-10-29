@@ -40,7 +40,7 @@ independent of other external programs.
           YAML.load f
         }
       rescue Errno::ENOENT => e
-        raise LoadError, e.message
+        raise Config::LoadError, e.message
       end
       h = Hash.try_convert(data) and h.each{|k, v| c[k] = v }
       c

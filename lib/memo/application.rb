@@ -56,7 +56,7 @@ Usage: #{basename} #{plugin.class.meta.desc.first}
       @config = begin
                   Config.load(self.class.config_path)
                 rescue Config::LoadError
-                  Config.new
+                  Config.new.tap{|c| c.save self.class.config_path }
                 end
     end
 
