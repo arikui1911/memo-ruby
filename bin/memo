@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require 'memo/application'
+require 'memo/cli'
+
+Memo::Application.new(Memo::CLI).run ARGV
+
