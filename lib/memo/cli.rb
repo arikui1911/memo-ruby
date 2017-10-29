@@ -18,10 +18,6 @@ module Memo
         }
       end
     end
-
-    desc 'hoge N', 'hogeeeeee'
-    def hoge(n)
-    end
   end
 end
 
