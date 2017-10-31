@@ -46,16 +46,19 @@ memo-plugin-xxx という名前である必要があります。
 
  * 例: some-plug という memo プラグイン
  * gem: memo-plugin-some-plug
- * /lib/memo/plugins/some-plug.rb 内に
-        require 'memo/plugin'
+ 
+/lib/memo/plugins/some-plug.rb 内に
+```ruby
+require 'memo/plugin'
 
-        module Memo
-          module Plugins
-            class SomePlug < Plugin
-              # ...
-            end
-          end
-        end
+module Memo
+  module Plugins
+    class SomePlug < Plugin
+      # ...
+    end
+  end
+end
+```
 
 実例としては memo の標準コマンドはみんなプラグインで実装されて
 いますので、 lib/memo/plugins/ 以下を見てみてください。
